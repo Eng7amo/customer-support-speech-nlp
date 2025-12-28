@@ -1,43 +1,67 @@
-# Customer Support Analytics using Speech Recognition and NLP
+# Customer Support Speech Recognition & NLP Project
 
-## Project Overview
-This project demonstrates an end-to-end machine learning workflow for enhancing customer support services using Speech Recognition and Natural Language Processing (NLP).
+## Objective
+The goal of this project is to design and implement an end-to-end pipeline that transforms customer support audio calls into actionable insights using Natural Language Processing (NLP).
 
-The objective is to:
-- Convert customer support audio calls into text
-- Analyze sentiment from call transcriptions
-- Extract named entities to identify recurring issues or references
-- Retrieve the most similar customer calls based on a text query
-
-The project is derived from a practical DataCamp project and emphasizes real-world applicability using open-source tools.
+Specifically, the project focuses on:
+- Transcribing customer support audio calls into text
+- Performing sentiment analysis on call transcripts
+- Extracting named entities to identify common themes and issues
+- Finding semantically similar customer calls based on a textual query
 
 ---
 
-## Business Use Case
-Retail and service-oriented companies handle large volumes of customer calls daily. Automating the transcription and analysis of these calls enables:
-- Faster issue identification
-- Improved customer experience
-- Data-driven service optimization
-- Reduced manual effort in call analysis
+## Dataset & Inputs
+- `sample_customer_call.wav`  
+  Sample customer support audio call used for speech-to-text transcription.
+
+- `customer_call_transcriptions.csv`  
+  Pre-transcribed customer calls containing:
+  - Call text
+  - Ground-truth sentiment labels
 
 ---
 
-## Key Features
-- Audio-to-text transcription using Speech Recognition
-- Sentiment analysis using VADER
-- Named Entity Recognition (NER) using spaCy
-- Semantic similarity search across customer call transcripts
+## Methodology
+
+### 1. Speech Recognition
+- Used the `SpeechRecognition` library to convert audio calls into text
+- Extracted audio metadata such as frame rate and number of channels using `Pydub`
+
+### 2. Sentiment Analysis
+- Applied VADER sentiment analysis from NLTK
+- Classified customer sentiment into:
+  - Positive
+  - Neutral
+  - Negative
+
+### 3. Named Entity Recognition (NER)
+- Used spaCy's `en_core_web_sm` model
+- Extracted frequently occurring entities across customer calls
+
+### 4. Semantic Similarity Search
+- Represented customer calls using spaCy embeddings
+- Retrieved the most similar call based on cosine similarity to a query
 
 ---
 
-## Tools & Technologies
+## Technologies Used
 - Python
 - SpeechRecognition
 - Pydub
 - spaCy
-- NLTK (VADER Sentiment Analysis)
+- NLTK (VADER)
 - Pandas
 
 ---
 
-## Repository Structure
+## Output
+- Transcribed customer call text
+- Sentiment predictions for customer calls
+- Most frequently mentioned named entities
+- Most similar customer call for a given query
+
+---
+
+## Notes
+This project emphasizes clarity, reproducibility, and real-world applicability of NLP techniques in customer support analytics.
